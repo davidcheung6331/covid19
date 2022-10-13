@@ -3,7 +3,6 @@ import { Cards, Charts, CountryPicker } from './components';
 import { fetchData } from "./api";
 import styles from './App.module.css';
 import coronaImage from './images/image.png';
-import Particles from "react-particles-js";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -21,8 +20,9 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        const fetchedData = await fetchData();
 
+        const fetchedData = await fetchData();
+        console.log("app.js - fetchdata ");
         this.setState({ data: fetchedData });
     }
 
@@ -38,50 +38,7 @@ class App extends React.Component {
         const { data, country } = this.state;
         return (
             <div>
-                <Particles
-                    style={{ position: "absolute" }}
-                    height="100%"
-                    width="100%"
-                    params={{
-                        particles: {
-                            "number": {
-                                "value": 200,
-                                "density": {
-                                    "enable": false
-                                }
-                            },
-                            "size": {
-                                "value": 3,
-                                "random": true,
-                                "anim": {
-                                    "speed": 4,
-                                    "size_min": 0.3
-                                }
-                            },
-                            "line_linked": {
-                                "enable": false
-                            },
-                            "move": {
-                                "random": true,
-                                "speed": 1,
-                                "direction": "bottom",
-                                "out_mode": "out"
-                            }
-                        },
-                        "modes": {
-                            "bubble": {
-                                "distance": 250,
-                                "duration": 2,
-                                "size": 0,
-                                "opacity": 0
-                            },
-                            "repulse": {
-                                "distance": 400,
-                                "duration": 4
-                            }
-                        }
-                    }}
-                />
+
                 <div className={styles.container}>
                     <div>
                         <div>
